@@ -56,7 +56,7 @@ export function SearchForm() {
     <div className="container mx-auto px-4 py-6 -mt-16 relative z-10">
       <div className="bg-white dark:bg-gray-950 rounded-xl shadow-lg p-4 md:p-6">
         <Tabs defaultValue="flights" onValueChange={setActiveTab}>
-          <TabsList className="grid grid-cols-3 md:grid-cols-11 gap-2 mb-6">
+          <TabsList className="flex justify-between py-10 px-8 gap-2 mb-6">
             <TabsTrigger value="flights" className="flex flex-col items-center gap-1 py-3">
               <Plane className="h-5 w-5" />
               <span className="text-xs">Flights</span>
@@ -65,9 +65,18 @@ export function SearchForm() {
               <Building className="h-5 w-5" />
               <span className="text-xs">Hotels</span>
             </TabsTrigger>
-            <TabsTrigger value="homestays" className="flex flex-col items-center gap-1 py-3">
-              <Home className="h-5 w-5" />
-              <span className="text-xs">Homestays</span>
+            
+            <TabsTrigger value="trains" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
+              <Train className="h-5 w-5" />
+              <span className="text-xs">Trains</span>
+            </TabsTrigger>
+            <TabsTrigger value="buses" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
+              <Bus className="h-5 w-5" />
+              <span className="text-xs">Buses</span>
+            </TabsTrigger>
+            <TabsTrigger value="cabs" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
+              <Car className="h-5 w-5" />
+              <span className="text-xs">Cabs</span>
             </TabsTrigger>
             <TabsTrigger value="holidays" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
               <Palmtree className="h-5 w-5" />
@@ -84,26 +93,6 @@ export function SearchForm() {
             <TabsTrigger value="community" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
               <Users className="h-5 w-5" />
               <span className="text-xs">Community</span>
-            </TabsTrigger>
-            <TabsTrigger value="trains" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
-              <Train className="h-5 w-5" />
-              <span className="text-xs">Trains</span>
-            </TabsTrigger>
-            <TabsTrigger value="buses" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
-              <Bus className="h-5 w-5" />
-              <span className="text-xs">Buses</span>
-            </TabsTrigger>
-            <TabsTrigger value="cabs" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
-              <Car className="h-5 w-5" />
-              <span className="text-xs">Cabs</span>
-            </TabsTrigger>
-            <TabsTrigger value="forex" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
-              <CreditCard className="h-5 w-5" />
-              <span className="text-xs">Forex Card</span>
-            </TabsTrigger>
-            <TabsTrigger value="insurance" className="flex flex-col items-center gap-1 py-3 hidden md:flex">
-              <Shield className="h-5 w-5" />
-              <span className="text-xs">Travel Insurance</span>
             </TabsTrigger>
           </TabsList>
 
