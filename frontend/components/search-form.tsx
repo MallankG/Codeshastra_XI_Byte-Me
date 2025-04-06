@@ -29,6 +29,12 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { Community } from "@/components/community"
 import HotelSearch from "./HotelSearch"
+import { MdHolidayVillage } from "react-icons/md"
+import { motion } from "framer-motion"
+import AiTripAdvisorSection from "./trip-advisor-section"
+import HolidayPackagesSection from "./holidayPackagesSection"
+import TrainSearchSection from "./train-search-section"
+import BusSearchSection from "./buses-search-section"
 
 export function SearchForm() {
   const [tripType, setTripType] = useState("oneWay")
@@ -85,7 +91,7 @@ export function SearchForm() {
             <TabsTrigger
               value="ai-advisor"
               className="flex flex-col items-center gap-1 py-3 hidden md:flex"
-              onClick={() => router.push("/ai-trip-advisor")}
+              // onClick={() => router.push("/ai-trip-advisor")}
             >
               <Bot className="h-5 w-5" />
               <span className="text-xs">AI Trip Advisor</span>
@@ -325,16 +331,23 @@ export function SearchForm() {
           </TabsContent>
 
           <TabsContent value="holidays">
-            <div className="p-8 text-center">
+            {/* <div className="p-8 text-center">
               <h3 className="text-lg font-medium">Holiday Packages</h3>
               <p className="text-gray-500 dark:text-gray-400">
                 Holiday packages functionality would be implemented here
               </p>
-            </div>
+                <Link href="/holiday-packages">
+                  <Button className="bg-rose-600 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800 mt-6">
+                    <MdHolidayVillage className="mr-2 h-4 w-4" />
+                    Holiday Packages
+                  </Button>
+                </Link>
+            </div> */}
+            <HolidayPackagesSection />
           </TabsContent>
 
           <TabsContent value="ai-advisor">
-            <div className="p-8 text-center">
+            {/* <div className="p-8 text-center">
               <h3 className="text-lg font-medium">AI Trip Advisor</h3>
               <p className="text-gray-500 dark:text-gray-400 mb-4">
                 Get personalized travel recommendations from our AI assistant
@@ -345,7 +358,8 @@ export function SearchForm() {
                   Open AI Trip Advisor
                 </Button>
               </Link>
-            </div>
+            </div> */}
+            <AiTripAdvisorSection />
           </TabsContent>
 
           <TabsContent value="community">
@@ -355,17 +369,31 @@ export function SearchForm() {
           </TabsContent>
 
           <TabsContent value="trains">
-            <div className="p-8 text-center">
+            {/* <div className="p-8 text-center">
               <h3 className="text-lg font-medium">Train Search</h3>
               <p className="text-gray-500 dark:text-gray-400">Train booking functionality would be implemented here</p>
-            </div>
+              <Link href="/train-ticket-booking">
+                  <Button className="bg-rose-600 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800 mt-6">
+                    <MdHolidayVillage className="mr-2 h-4 w-4" />
+                    Train Ticket Booking
+                  </Button>
+                </Link>
+            </div> */}
+            <TrainSearchSection />
           </TabsContent>
 
           <TabsContent value="buses">
-            <div className="p-8 text-center">
+            {/* <div className="p-8 text-center">
               <h3 className="text-lg font-medium">Bus Search</h3>
               <p className="text-gray-500 dark:text-gray-400">Bus booking functionality would be implemented here</p>
-            </div>
+            <Link href="/bus-ticket-booking">
+                  <Button className="bg-rose-600 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800 mt-6">
+                    <MdHolidayVillage className="mr-2 h-4 w-4" />
+                    Bus Ticket Booking
+                  </Button>
+                </Link>
+            </div> */}
+            <BusSearchSection />
           </TabsContent>
 
           <TabsContent value="cabs">
@@ -395,4 +423,3 @@ export function SearchForm() {
     </div>
   )
 }
-

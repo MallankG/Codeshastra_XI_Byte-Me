@@ -24,8 +24,8 @@ export default function Home() {
             <Link href="/support" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
               Support
             </Link>
-            <Link href="/trips" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
-              My Trips
+            <Link href="/scrap-books" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
+              Scrap Books
             </Link>
             {/* <Link href="/login" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
               Login
