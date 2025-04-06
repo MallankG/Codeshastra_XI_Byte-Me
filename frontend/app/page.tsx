@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { SearchForm } from "@/components/search-form"
-import { OfferSection } from "@/components/offer-section"
+import { OfferSection } from '../components/offer-section';
 import { FeatureSection } from "@/components/feature-section"
 import { Footer } from "@/components/footer"
 import { HeroSection } from "@/components/hero-section"
@@ -21,8 +21,8 @@ export default function Home() {
             <Link href="/offers" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
               Offers
             </Link>
-            <Link href="/support" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
-              Support
+            <Link href="/feedback" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
+              Feedback
             </Link>
             <Link href="/scrap-books" className="text-sm font-medium hover:text-rose-600 dark:hover:text-rose-500">
               Scrap Books

@@ -9,6 +9,18 @@ import Image from "next/image"
 export function OfferSection() {
   const [activeTab, setActiveTab] = useState("all")
 
+  const tabItems = [
+    { value: "all", label: "All Offers" },
+    { value: "bank", label: "Bank Offers" },
+    { value: "flights", label: "Flights" },
+    { value: "hotels", label: "Hotels" },
+    { value: "holidays", label: "Holidays" },
+    { value: "trains", label: "Trains" },
+    { value: "cabs", label: "Cabs" },
+    { value: "bus", label: "Bus" },
+    { value: "forex", label: "Forex" },
+  ]
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex items-center justify-between mb-6">
@@ -29,130 +41,92 @@ export function OfferSection() {
       </div>
 
       <Tabs defaultValue="all" onValueChange={setActiveTab}>
-        <TabsList className="mb-6 bg-transparent border-b w-full justify-start">
-          <TabsTrigger
-            value="all"
-            className={`rounded-none border-b-2 ${activeTab === "all" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            All Offers
-          </TabsTrigger>
-          <TabsTrigger
-            value="bank"
-            className={`rounded-none border-b-2 ${activeTab === "bank" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Bank Offers
-          </TabsTrigger>
-          <TabsTrigger
-            value="flights"
-            className={`rounded-none border-b-2 ${activeTab === "flights" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Flights
-          </TabsTrigger>
-          <TabsTrigger
-            value="hotels"
-            className={`rounded-none border-b-2 ${activeTab === "hotels" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Hotels
-          </TabsTrigger>
-          <TabsTrigger
-            value="holidays"
-            className={`rounded-none border-b-2 ${activeTab === "holidays" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Holidays
-          </TabsTrigger>
-          <TabsTrigger
-            value="trains"
-            className={`rounded-none border-b-2 ${activeTab === "trains" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Trains
-          </TabsTrigger>
-          <TabsTrigger
-            value="cabs"
-            className={`rounded-none border-b-2 ${activeTab === "cabs" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Cabs
-          </TabsTrigger>
-          <TabsTrigger
-            value="bus"
-            className={`rounded-none border-b-2 ${activeTab === "bus" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Bus
-          </TabsTrigger>
-          <TabsTrigger
-            value="forex"
-            className={`rounded-none border-b-2 ${activeTab === "forex" ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500" : "border-transparent"}`}
-          >
-            Forex
-          </TabsTrigger>
+        <TabsList className="mb-6 bg-transparent border-b w-full justify-start overflow-x-auto">
+          {tabItems.map((tab) => (
+            <TabsTrigger
+              key={tab.value}
+              value={tab.value}
+              className={`rounded-none border-b-2 ${
+                activeTab === tab.value
+                  ? "border-rose-600 text-rose-600 dark:border-rose-500 dark:text-rose-500"
+                  : "border-transparent"
+              }`}
+            >
+              {tab.label}
+            </TabsTrigger>
+          ))}
         </TabsList>
 
+        {/* All Offers */}
         <TabsContent value="all" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <OfferCard
             title="WOW Deals on Bank Cards, JACKPOT DEALS"
-            description="Showstopper Deals, Special MMTBLACK Offers & more"
-            image="/placeholder.svg?height=200&width=400"
+            description="Showstopper Deals, Special Card Offers & more"
+            image="https://blog.bankbazaar.com/wp-content/uploads/2023/01/TOP_OFFER_PAGE_BANNER_IBL_PLATINUM.png"
             category="INTL FLIGHTS"
             buttonText="BOOK NOW"
           />
-
           <OfferCard
             title="LIVE NOW: FLAT 45% OFF* on Holiday Packages"
             description="Explore all incredible deals & plan a trip"
-            image="/placeholder.svg?height=200&width=400"
+            image="https://www.outstandingcolleges.com/wp-content/uploads/2015/02/tour-packages.jpg"
             category="HOLIDAYS"
             buttonText="BOOK NOW"
           />
-
           <OfferCard
             title="SUN-SATIONAL DEALS FOR YOUR SUMMER VACAY"
             description="Grab Up to 30% OFF* on International Hotels!"
-            image="/placeholder.svg?height=200&width=400"
+            image="https://businesshilights.com.ng/wp-content/uploads/2018/04/Marriot-Accra-1024x682.jpg"
             category="INTL HOTELS"
             buttonText="BOOK NOW"
           />
         </TabsContent>
 
+        {/* Bank Offers */}
         <TabsContent value="bank" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <OfferCard
             title="WOW Deals on Bank Cards, JACKPOT DEALS"
             description="Showstopper Deals, Special MMTBLACK Offers & more"
-            image="/placeholder.svg?height=200&width=400"
+            image="https://blog.bankbazaar.com/wp-content/uploads/2023/01/TOP_OFFER_PAGE_BANNER_IBL_PLATINUM.png"
             category="BANK OFFERS"
             buttonText="BOOK NOW"
           />
         </TabsContent>
 
+        {/* Flights */}
         <TabsContent value="flights" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <OfferCard
             title="New Flights by IndiGo Stretch & Stretch+"
             description="with FLAT ₹3000 OFF*"
-            image="/placeholder.svg?height=200&width=400"
+            image="https://www.logisticsinsider.in/wp-content/uploads/2022/06/indgo.jpeg"
             category="DOM FLIGHTS"
             buttonText="BOOK NOW"
           />
         </TabsContent>
 
+        {/* Hotels */}
         <TabsContent value="hotels" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <OfferCard
             title="SUN-SATIONAL DEALS FOR YOUR SUMMER VACAY"
             description="Grab Up to 30% OFF* on International Hotels!"
-            image="/placeholder.svg?height=200&width=400"
+            image="https://www.fourseasons.com/alt/img-opt/~70..0,0000-125,0000-2400,0000-1350,0000/publish/content/dam/fourseasons/images/web/NYF/NYF_1376_original.jpg"
             category="INTL HOTELS"
             buttonText="BOOK NOW"
           />
         </TabsContent>
 
+        {/* Holidays */}
         <TabsContent value="holidays" className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <OfferCard
             title="LIVE NOW: FLAT 45% OFF* on Holiday Packages"
             description="Explore all incredible deals & plan a trip"
-            image="/placeholder.svg?height=200&width=400"
+            image="https://businesshilights.com.ng/wp-content/uploads/2018/04/Marriot-Accra-1024x682.jpg"
             category="HOLIDAYS"
             buttonText="BOOK NOW"
           />
         </TabsContent>
 
-        {/* Other tab contents would follow the same pattern */}
+        {/* Other TabsContent (trains, cabs, bus, forex) can be added here similarly */}
       </Tabs>
     </div>
   )
@@ -194,4 +168,3 @@ function OfferCard({ title, description, image, category, buttonText }: OfferCar
     </div>
   )
 }
-

@@ -45,7 +45,7 @@ export default function AiTripAdvisorSection() {
           whileHover={{ scale: 1.05 }}
           className="inline-block mt-6"
         >
-          <Link href="/ai-trip-advisor">
+          <Link href="https://chatbot-cs11.streamlit.app/">
             <Button className="bg-rose-600 hover:bg-rose-700 dark:bg-rose-700 dark:hover:bg-rose-800 text-white text-sm md:text-base px-6 py-2 shadow-md">
               <Bot className="mr-2 h-5 w-5" />
               Open AI Trip Advisor
@@ -64,7 +64,7 @@ export default function AiTripAdvisorSection() {
             viewport={{ once: true }}
             className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
           >
-            <div className="relative h-48 w-full">
+            {/* <div className="relative h-48 w-full">
               <Image
                 src={dest.image}
                 alt={dest.name}
@@ -72,7 +72,7 @@ export default function AiTripAdvisorSection() {
                 objectFit="cover"
                 className="hover:scale-105 transition-transform duration-500"
               />
-            </div>
+            </div> */}
             <div className="p-4">
               <h3 className="text-lg font-semibold text-zinc-800 dark:text-white mb-1 flex items-center gap-1">
                 <MapPin size={16} /> {dest.name}

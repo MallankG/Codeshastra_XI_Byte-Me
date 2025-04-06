@@ -4,7 +4,7 @@ export function HeroSection() {
   return (
     <div className="relative h-[400px] w-full">
       <Image
-        src="/placeholder.svg?height=800&width=1600"
+        src="https://www.luxurytravelmag.com.au/wp-content/uploads/2019/04/Book-Now-1.jpg"
         alt="Travel destinations"
         fill
         className="object-cover"
