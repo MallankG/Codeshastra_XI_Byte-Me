@@ -1,7 +1,7 @@
-// pages/api/amadeus/token.ts
-import type { NextApiRequest, NextApiResponse } from "next";
+// app/api/amadeus/token/route.ts
+import { NextRequest, NextResponse } from "next/server";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest) {
   try {
     const response = await fetch("https://test.api.amadeus.com/v1/security/oauth2/token", {
       method: "POST",
@@ -16,8 +16,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const data = await response.json();
-    res.status(200).json(data);
+    return NextResponse.json(data);
   } catch (error) {
-    res.status(500).json({ error: "Token fetch failed" });
+    return NextResponse.json({ error: "Token fetch failed" }, { status: 500 });
   }
 }

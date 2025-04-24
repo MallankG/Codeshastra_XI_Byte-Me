@@ -247,35 +247,50 @@ export function Community() {
   }, [communities])
 
   // Chat socket setup
-  useEffect(() => {
-    const socketInstance = io()
-    setSocket(socketInstance)
+  const didInitRef = useRef(false)
 
-    const userName = prompt("What is your name?") || "Anonymous"
-    setName(userName)
-    socketInstance.emit("new-user", userName)
-    setMessages((prev) => [...prev, "You joined"])
+// Replace your current Socket.IO initialization in community.tsx (around line 255)
+useEffect(() => {
+  if (didInitRef.current) return
+  didInitRef.current = true
 
-    socketInstance.on("chat-message", (data: MessageData) => {
-      setMessages((prev) => [...prev, `${data.name}: ${data.message}`])
-    })
+  const socketInstance = io("http://localhost:3500", {
+    withCredentials: true,
+    transports: ['polling', 'websocket']
+  })
+  
+  socketInstance.on("connect", () => {
+    console.log("Connected to chat server")
+  })
+  
+  socketInstance.on("connect_error", (err) => {
+    console.error("Connection error:", err.message)
+  })
+  
+  setSocket(socketInstance)
 
-    socketInstance.on("user-connected", (newUser: string) => {
-      setMessages((prev) => [...prev, `${newUser} connected`])
-    })
+  const userName = prompt("What is your name?")?.trim() || "Anonymous"
+  setName(userName)
+  socketInstance.emit("new-user", userName)
+  setMessages((prev) => [...prev, "You joined"])
 
-    socketInstance.on("user-disconnected", (oldUser: string) => {
-      setMessages((prev) => [...prev, `${oldUser} disconnected`])
-    })
+  socketInstance.on("chat-message", (data: MessageData) => {
+    setMessages((prev) => [...prev, `${data.name}: ${data.message}`])
+  })
 
-    return () => {
-      socketInstance.disconnect()
-    }
-  }, [])
+  socketInstance.on("user-connected", (newUser: string) => {
+    setMessages((prev) => [...prev, `${newUser} connected`])
+  })
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [messages])
+  socketInstance.on("user-disconnected", (oldUser: string) => {
+    setMessages((prev) => [...prev, `${oldUser} disconnected`])
+  })
+
+  return () => {
+    socketInstance.disconnect()
+  }
+}, [])
+
 
   const handleJoinCommunity = (communityId: string) => {
     setCommunities((prev) =>

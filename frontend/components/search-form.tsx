@@ -316,7 +316,7 @@ export function SearchForm() {
           <TabsContent value="hotels">
             <div className="p-8 text-center">
               <h3 className="text-lg font-medium">Hotel Search</h3>
-              <p className="text-gray-500 dark:text-gray-400">Hotel booking functionality would be implemented here</p>
+              {/* <p className="text-gray-500 dark:text-gray-400">Hotel booking functionality would be implemented here</p> */}
               <HotelSearch />
             </div>
           </TabsContent>

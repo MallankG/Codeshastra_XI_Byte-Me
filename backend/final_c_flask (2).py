@@ -24,13 +24,13 @@ app = Flask(__name__)
 CORS(app)
 
 # API Keys
-AMADEUS_API_KEY = "KcJe1Ef160GbCmAurWO2ieApdYJnUgKG"
-AMADEUS_API_SECRET = "8Axu4TAQGgvWpm0D"
-GOOGLE_API_KEY = "AIzaSyBF_X-pCPrgGDDT_0XK1ObF7lR1MkEsTl0"  # Replace with your actual Google API key
-GROQ_API_KEY = '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'
-WEATHERAPI_KEY = "AIzaSyBF_X-pCPrgGDDT_0XK1ObF7lR1MkEsTl0"  # Replace with your actual WeatherAPI key if different
-AQI_TOKEN = "AIzaSyBF_X-pCPrgGDDT_0XK1ObF7lR1MkEsTl0"  # Replace with your actual AQI token if different
-UNSPLASH_ACCESS_KEY = "FlKz5N26NpYD6MloqmzV-taJRCAf_zYX5O-EAt-XGn4"
+AMADEUS_API_KEY = os.environ.get("AMADEUS_API_KEY")
+AMADEUS_API_SECRET = os.environ.get("AMADEUS_API_SECRET")
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+WEATHERAPI_KEY = os.environ.get("WEATHERAPI_KEY")
+AQI_TOKEN = os.environ.get("AQI_TOKEN")
+UNSPLASH_ACCESS_KEY = os.environ.get("UNSPLASH_ACCESS_KEY")
 
 # Initialize Groq client
 groq_client = Groq(api_key=GROQ_API_KEY)
